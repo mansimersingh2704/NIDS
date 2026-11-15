@@ -1,0 +1,296 @@
+{
+  "timestamp": "2026-11-15T09:37:10.710628+00:00",
+  "dataset": "CIC-IDS2017",
+  "total_samples": 75927,
+  "train_samples": 53148,
+  "val_samples": 11389,
+  "test_samples": 11390,
+  "features": [
+    "destination_port",
+    "flow_duration",
+    "total_packets",
+    "total_bytes",
+    "packet_len_min",
+    "packet_len_max",
+    "packet_len_mean",
+    "packet_len_std",
+    "packet_len_var",
+    "flow_bytes_per_sec",
+    "flow_packets_per_sec",
+    "flow_iat_mean",
+    "flow_iat_std",
+    "flow_iat_max",
+    "flow_iat_min",
+    "fin_flag_count",
+    "syn_flag_count",
+    "rst_flag_count",
+    "psh_flag_count",
+    "ack_flag_count",
+    "urg_flag_count",
+    "avg_packet_size"
+  ],
+  "classes": [
+    "BENIGN",
+    "DDoS",
+    "PortScan"
+  ],
+  "champion_model": "random_forest",
+  "models": {
+    "random_forest": {
+      "name": "Random Forest",
+      "type": "Ensemble (Bagging)",
+      "hyperparameters": {
+        "n_estimators": 100,
+        "max_depth": 16,
+        "min_samples_split": 5,
+        "class_weight": "balanced"
+      },
+      "metrics": {
+        "accuracy": 0.9997,
+        "precision_macro": 0.9998,
+        "recall_macro": 0.9997,
+        "f1_macro": 0.9998,
+        "precision_weighted": 0.9997,
+        "recall_weighted": 0.9997,
+        "f1_weighted": 0.9997,
+        "false_positive_rate": 0.0,
+        "roc_auc": 0.9999,
+        "confusion_matrix": {
+          "matrix": [
+            [
+              4378,
+              0,
+              0
+            ],
+            [
+              3,
+              3747,
+              0
+            ],
+            [
+              0,
+              0,
+              3262
+            ]
+          ],
+          "classes": [
+            "BENIGN",
+            "DDoS",
+            "PortScan"
+          ]
+        },
+        "per_class": {
+          "BENIGN": {
+            "precision": 0.9993152248345126,
+            "recall": 1.0,
+            "f1_score": 0.999657495147848,
+            "support": 4378
+          },
+          "DDoS": {
+            "precision": 1.0,
+            "recall": 0.9992,
+            "f1_score": 0.9995998399359743,
+            "support": 3750
+          },
+          "PortScan": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "support": 3262
+          }
+        },
+        "classification_report": {
+          "BENIGN": {
+            "precision": 0.9993152248345126,
+            "recall": 1.0,
+            "f1-score": 0.999657495147848,
+            "support": 4378.0
+          },
+          "DDoS": {
+            "precision": 1.0,
+            "recall": 0.9992,
+            "f1-score": 0.9995998399359743,
+            "support": 3750.0
+          },
+          "PortScan": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 3262.0
+          },
+          "accuracy": 0.9997366110623354,
+          "macro avg": {
+            "precision": 0.9997717416115042,
+            "recall": 0.9997333333333334,
+            "f1-score": 0.9997524450279407,
+            "support": 11390.0
+          },
+          "weighted avg": {
+            "precision": 0.9997367914245388,
+            "recall": 0.9997366110623354,
+            "f1-score": 0.9997366034694629,
+            "support": 11390.0
+          }
+        }
+      },
+      "feature_importances": {
+        "packet_len_max": 0.1708,
+        "total_bytes": 0.1249,
+        "avg_packet_size": 0.123,
+        "packet_len_mean": 0.1195,
+        "total_packets": 0.0873,
+        "destination_port": 0.0462,
+        "flow_iat_std": 0.0443,
+        "flow_packets_per_sec": 0.0405,
+        "flow_iat_mean": 0.0362,
+        "flow_iat_max": 0.0341,
+        "flow_duration": 0.0326,
+        "packet_len_min": 0.0286,
+        "packet_len_var": 0.0259,
+        "psh_flag_count": 0.0246,
+        "packet_len_std": 0.0173,
+        "ack_flag_count": 0.014,
+        "urg_flag_count": 0.011,
+        "flow_bytes_per_sec": 0.0105,
+        "flow_iat_min": 0.0081,
+        "syn_flag_count": 0.0004,
+        "fin_flag_count": 0.0002,
+        "rst_flag_count": 0.0
+      },
+      "model_file": "random_forest.joblib"
+    },
+    "xgboost": {
+      "name": "XGBoost",
+      "type": "Gradient Boosted Trees",
+      "hyperparameters": {
+        "n_estimators": 100,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "subsample": 0.8
+      },
+      "metrics": {
+        "accuracy": 0.9996,
+        "precision_macro": 0.9997,
+        "recall_macro": 0.9997,
+        "f1_macro": 0.9997,
+        "precision_weighted": 0.9996,
+        "recall_weighted": 0.9996,
+        "f1_weighted": 0.9996,
+        "false_positive_rate": 0.0005,
+        "roc_auc": 1.0,
+        "confusion_matrix": {
+          "matrix": [
+            [
+              4376,
+              2,
+              0
+            ],
+            [
+              2,
+              3748,
+              0
+            ],
+            [
+              0,
+              0,
+              3262
+            ]
+          ],
+          "classes": [
+            "BENIGN",
+            "DDoS",
+            "PortScan"
+          ]
+        },
+        "per_class": {
+          "BENIGN": {
+            "precision": 0.9995431703974418,
+            "recall": 0.9995431703974418,
+            "f1_score": 0.9995431703974418,
+            "support": 4378
+          },
+          "DDoS": {
+            "precision": 0.9994666666666666,
+            "recall": 0.9994666666666666,
+            "f1_score": 0.9994666666666666,
+            "support": 3750
+          },
+          "PortScan": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "support": 3262
+          }
+        },
+        "classification_report": {
+          "BENIGN": {
+            "precision": 0.9995431703974418,
+            "recall": 0.9995431703974418,
+            "f1-score": 0.9995431703974418,
+            "support": 4378.0
+          },
+          "DDoS": {
+            "precision": 0.9994666666666666,
+            "recall": 0.9994666666666666,
+            "f1-score": 0.9994666666666666,
+            "support": 3750.0
+          },
+          "PortScan": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 3262.0
+          },
+          "accuracy": 0.9996488147497805,
+          "macro avg": {
+            "precision": 0.9996699456880361,
+            "recall": 0.9996699456880361,
+            "f1-score": 0.9996699456880361,
+            "support": 11390.0
+          },
+          "weighted avg": {
+            "precision": 0.9996488147497805,
+            "recall": 0.9996488147497805,
+            "f1-score": 0.9996488147497805,
+            "support": 11390.0
+          }
+        }
+      },
+      "feature_importances": {
+        "packet_len_max": 0.3435,
+        "total_bytes": 0.1823,
+        "total_packets": 0.1572,
+        "urg_flag_count": 0.154,
+        "packet_len_mean": 0.0566,
+        "flow_bytes_per_sec": 0.0215,
+        "psh_flag_count": 0.0153,
+        "packet_len_var": 0.0131,
+        "avg_packet_size": 0.0118,
+        "destination_port": 0.0109,
+        "flow_iat_std": 0.0076,
+        "packet_len_min": 0.006,
+        "ack_flag_count": 0.005,
+        "flow_iat_min": 0.0031,
+        "syn_flag_count": 0.0024,
+        "fin_flag_count": 0.0023,
+        "flow_iat_mean": 0.0022,
+        "flow_iat_max": 0.0019,
+        "packet_len_std": 0.0016,
+        "flow_duration": 0.0011,
+        "flow_packets_per_sec": 0.0007,
+        "rst_flag_count": 0.0
+      },
+      "model_file": "xgboost.joblib"
+    },
+    "isolation_forest": {
+      "name": "Isolation Forest",
+      "type": "Unsupervised Anomaly Detector",
+      "hyperparameters": {
+        "n_estimators": 100,
+        "contamination": 0.03
+      },
+      "anomalies_detected_on_test": 133,
+      "model_file": "isolation_forest.joblib"
+    }
+  }
+}
